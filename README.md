@@ -62,3 +62,7 @@ Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos u
   }
 
 - Para rodar os testes, execute: npm run <script_name>
+
+## Diagrama Sequencial do Projeto
+
+Link: https://miro.com/welcomeonboard/ZGJETVQ3dWhGbCs3ZUxudkExREdRMjczRW10bjdISXNnaVlMRXJEUDUyOWJjdjZ3bUY0S3JUc0lYVWYxL211UjlNZFZ1NVU3WEo4NFo2UFhyWG1uaHNDeXkxbE9CZDVaRlFuOGo4VnFUbEkzWE9mSCs5TUNiTUxEdGdXMm85dTZBd044SHFHaVlWYWk0d3NxeHNmeG9BPT0hdjE=?share_link_id=243994257622
