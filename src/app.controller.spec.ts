@@ -5,7 +5,7 @@ import { ProductRepository } from './repository/product.repository';
 import { ProductEntity } from './domain/entity/product.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductService } from './services/product.service';
-import { UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, UnauthorizedException } from '@nestjs/common';
 
 describe('ProductController', () => {
   let productController: ProductController;
@@ -34,7 +34,7 @@ describe('ProductController', () => {
 
   const mockRequest = {
     body: {
-      ean: "1234567",
+      ean: "1",
       name: "Teste",
       unit: "KG",
       stock: 1
@@ -49,6 +49,10 @@ describe('ProductController', () => {
     const result = await productController.create(mockRequest, mockRequest.body);
     expect(result).toEqual({ message: 'Successfully', statusCode: 201 });
   });
+  
+  it('should return BadRequestException', async () => {
+    await expect(productController.create(mockRequest, mockRequest.body)).rejects.toThrow(BadRequestException)
+  })
 
   it('should return UnauthorizedException', async () => {
     mockRequest.get = jest.fn().mockReturnValue('')

@@ -16,11 +16,11 @@ export class ProductController {
 
     try {
       if (authorization === process.env.API_AUTHORIZATION) {
-        await this.productService.createAsync(body);
-        return { message: "Successfully", statusCode: 201 };
+        if(await this.productService.createAsync(body)) return { description: "success" };
+        else throw new BadRequestException({ description: `the ean ${request.body.ean} already exist!` })
       }
 
-      throw new UnauthorizedException();
+      throw new UnauthorizedException({ description: `unauthorized` });
     } catch (error) {
       console.log(error);
       

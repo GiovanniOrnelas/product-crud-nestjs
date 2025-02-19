@@ -1,6 +1,6 @@
 # Product CRUD API - NestJS
 
-Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos utilizando PostgreSQL e Express. Para não criarmos complexidade, utilizei o TypeORM para realizarmos requisições simples no banco sem precisarmos criar linguagens SQL em nosso código. O objetivo é fornecer um exemplo bem estruturado de uma API REST para portfólio e aprendizado.
+Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos utilizando PostgreSQL e Express (futuramente, irei acrescentar Docker). Para não criarmos muita complexidade, utilizei o TypeORM para realizarmos requisições simples no banco sem precisarmos criar linguagens SQL em nosso código. O objetivo deste proeto é fornecer um exemplo bem estruturado de uma API REST para portfólio e aprendizado.
 
 ## 🚧 Status
 - Em desenvolvimento
@@ -10,18 +10,18 @@ Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos u
 - Node.js com TypeScript
 - NestJS (Arquitetura modular e injeção de dependências)
 - PostgreSQL (Banco de dados relacional)
-- TypeORM (Facilita a comunicação com o banco de dados de forma orientada a objetos)
-- Jest (Testes automatizados)
+- TypeORM (Facilitador de comunicação com o banco de dados de forma orientada a objetos)
+- Jest (Testes unitários)
 
 ## 📌 Funcionalidades
 
 - Criar um produto
-- Listar todos os produtos
+- Listar todos os produtos com paginação
 - Buscar um produto por ID
 - Atualizar um produto
 - Deletar um produto
 
-## 🛠️ Como Rodar
+## 🛠️ Como Configurar o Projeto
 
 - Clone o repositório: https://github.com/GiovanniOrnelas/product-crud-nestjs.git
 - Instale as dependências: npm install

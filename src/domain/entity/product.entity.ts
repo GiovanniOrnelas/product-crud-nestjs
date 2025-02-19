@@ -1,8 +1,11 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class ProductEntity {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
+    id!: number
+    
+    @Column()
     ean!: string;
    
     @Column()

@@ -7,9 +7,9 @@ import { ProductRepository } from "../repository/product.repository";
 export class ProductService implements ProductServiceInterface {
     constructor(private productRepository: ProductRepository) { }
 
-    async createAsync(productDto: ProductDto): Promise<void> {
+    async createAsync(productDto: ProductDto): Promise<boolean> {
         try {
-            await this.productRepository.create(productDto);
+            return await this.productRepository.create(productDto);
         } catch (error) {
             throw error;
         }
