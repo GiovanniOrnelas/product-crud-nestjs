@@ -24,7 +24,16 @@ Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos u
 ## 🛠️ Como Rodar
 
 - Clone o repositório: https://github.com/GiovanniOrnelas/product-crud-nestjs.git
-- Instale as dependências:
+- Instale as dependências: npm install
+- Crie o .env com as informações:
+    ## API
+    API_AUTHORIZATION = ''
+
+    ## PostgreSQL
+    BD_USER = ''
+    BD_PASSWORD = ''
+    BD_PORT = 
+    BD_NAME = ''
 - Configure o banco de dados PostgreSQL em seu ambiente local
 - Inicie o servidor: npm run start
 
