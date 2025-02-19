@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",                         // Compatível com o ambiente Node.js 14.x ou superior
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "lib": ["ES2020"],                          // Define as bibliotecas padrão utilizadas
+      "module": "commonjs",                       // O padrão para Node.js
+      "moduleResolution": "node",                 // Resolve módulos de forma padrão no Node.js
+      "esModuleInterop": true,                    // Habilita interoperabilidade entre CommonJS e ES Modules
+      "forceConsistentCasingInFileNames": true,   // Garante consistência de letras maiúsculas e minúsculas nos imports
+      "strict": true,                             // Habilita todas as verificações de tipo estritas
+      "noImplicitAny": true,                      // Evita `any` implícito, aumentando a segurança
+      "noImplicitReturns": true,                  // Garante que todas as funções retornem um valor ou `undefined`
+      "noUnusedLocals": true,                     // Erros para variáveis locais não utilizadas
+      "noUnusedParameters": true,                 // Erros para parâmetros não utilizados
+      "resolveJsonModule": true,                  // Permite a importação de arquivos JSON
+      "skipLibCheck": true,                       // Ignora a verificação de tipos em arquivos de definição de biblioteca
+      "strictNullChecks": true,                   // Verifica rigorosamente valores `null` e `undefined`
+      "outDir": "./dist",                         // Diretório de saída para arquivos compilados
+      "typeRoots": ["./node_modules/@types"],     // Diretório onde estão os tipos
+      "noEmitOnError": true,                      // Não irá transpilar o código em Javascript caso tenha algum erro no código
+      "allowSyntheticDefaultImports": true        // Permite a importação de pacotes com `default` sintético
+    },
+    "include": ["src/**/*", "tests/**/*.tss"]
+}

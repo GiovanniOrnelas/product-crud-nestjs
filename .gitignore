@@ -1,0 +1,39 @@
+# Dependências do Node.js
+node_modules/
+
+# Build output
+dist/
+
+# Arquivo de lock de dependências
+package-lock.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Diretórios e arquivos temporários
+tmp/
+temp/
+
+# Arquivos de sistema (macOS)
+.DS_Store
+
+# Arquivos de sistema (Windows)
+Thumbs.db
+
+# IDEs e editores (exemplos)
+.vscode/
+.idea/
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Arquivos do npm
+npm-debug.log
+yarn-debug.log
+yarn-error.log
