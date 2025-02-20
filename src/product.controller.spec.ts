@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ProductController } from './app.controller';
+import { ProductController } from './product.controller';
 import { Request } from 'express';
 import { ProductRepository } from './repository/product.repository';
 import { ProductEntity } from './domain/entity/product.entity';

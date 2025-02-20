@@ -17,7 +17,7 @@ export class ProductController {
     try {
       if (authorization === process.env.API_AUTHORIZATION) {
         if(await this.productService.createAsync(body)) return { description: "success" };
-        else throw new BadRequestException({ description: `the ean ${request.body.ean} already exist!` })
+        else throw new BadRequestException({ description: `EAN ${request.body.ean} already exist!` })
       }
 
       throw new UnauthorizedException({ description: `unauthorized` });
