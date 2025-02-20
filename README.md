@@ -1,6 +1,8 @@
 # Product CRUD API - NestJS
 
-Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos utilizando PostgreSQL e Express (futuramente, irei acrescentar Docker). Para não criarmos muita complexidade, utilizei o TypeORM para realizarmos requisições simples no banco sem precisarmos criar linguagens SQL em nosso código. O objetivo deste proeto é fornecer um exemplo bem estruturado de uma API REST para portfólio e aprendizado.
+Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos utilizando PostgreSQL e Express (futuramente, irei acrescentar Docker). O projeto já utiliza algumas funcionalidades do Nest.js, como o Guards e o Pipes. O Guards é utilizado para validar o token de autorização, garantindo que a requisição tem permissão para acessar o recurso, enquanto o Pipes é responsável por validar e transformar os DTOs (Data Transfer Objects) do código.
+
+Para não criarmos muita complexidade, utilizei o TypeORM para realizarmos requisições simples no banco sem precisarmos criar linguagens SQL em nosso código. O objetivo deste proeto é fornecer um exemplo bem estruturado de uma API REST para portfólio e aprendizado.
 
 ## 🚧 Status
 - Em desenvolvimento
@@ -45,10 +47,10 @@ Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos u
     -H 'Authorization: Basic {{Token}}' \
     -H 'Content-Type: application/json' \
     -d '{
-        "ean": "123",
-        "name": "Mussarela ITALAC",
-        "unit": "KG",
-        "stock": 10
+        "ean": "",
+        "name": "product-name",
+        "unit": "kg || un",
+        "stock": 0
     }'
 
 ## 🧪 Testes Unitários
