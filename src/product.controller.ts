@@ -1,43 +1,29 @@
-import { Controller, Post, Req, UnauthorizedException, Body, BadRequestException, InternalServerErrorException, Get } from '@nestjs/common';
+import { Controller, Post, Body, Get, UseGuards, InternalServerErrorException, Param } from '@nestjs/common';
 import { ProductService } from './services/product.service';
 import { ProductDto } from './domain/dto/product.dto';
-import { Request } from 'express';
-import * as dotenv from 'dotenv';
 import { ApiResponse } from './domain/dto/api-response.dto';
-dotenv.config();
+import { AuthGuard } from './guards/auth.guard';
 
 @Controller('product')
+@UseGuards(AuthGuard)
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Post()
-  async create(@Req() request: Request, @Body() body: ProductDto): Promise<{productId: number}> {
-    const authorization = request.get('authorization');
-
-    try {
-      if (authorization === process.env.API_AUTHORIZATION)   
-        return { productId: await this.productService.createAsync(body) }
-
-      throw new UnauthorizedException({ errorMessage: `unauthorized` });
+  async create(@Body() body: ProductDto): Promise<{productId: number}> {
+    try {  
+      return { productId: await this.productService.createAsync(body) }
     } catch (error) {
-      if (error instanceof UnauthorizedException || error instanceof BadRequestException) throw error;  
-      throw new InternalServerErrorException(error instanceof Error ? error.message : 'Internal server error');
+      throw error instanceof Error ? error : new InternalServerErrorException('Internal server error');
     }
   }
 
   @Get(':productId')
-  async find(@Req() request: Request): Promise<ApiResponse<ProductDto>> {
-    const authorization = request.get('authorization');
-    const { productId } = request.params;
-
+  async find(@Param('productId') productId: string): Promise<ApiResponse<ProductDto>> {
     try {
-      if (authorization === process.env.API_AUTHORIZATION)
-        return { data: await this.productService.findAsync(parseInt(productId)) }
-
-      throw new UnauthorizedException({ description: `unauthorized` });
+      return { data: await this.productService.findAsync(parseInt(productId)) }
     } catch (error) {
-      if (error instanceof UnauthorizedException || error instanceof BadRequestException) throw error;  
-      throw new InternalServerErrorException(error instanceof Error ? error.message : 'Internal server error');
+      throw error instanceof Error ? error : new InternalServerErrorException('Internal server error');
     }
   }
 }

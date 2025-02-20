@@ -1,11 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProductController } from './product.controller';
-import { Request } from 'express';
 import { ProductRepository } from './repository/product.repository';
 import { ProductEntity } from './domain/entity/product.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductService } from './services/product.service';
-import { BadRequestException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException } from '@nestjs/common';
 import { ProductValidator } from './validators/product.validator';
 
 describe('Create', () => {
@@ -34,31 +33,20 @@ describe('Create', () => {
   });
 
   const mockRequest = {
-    body: {
-      ean: "1312321542312321312",
+      ean: "122191",
       name: "Teste",
       unit: "KG",
       stock: 1
-    },
-    headers: {
-      authorization: process.env.API_AUTHORIZATION,
-    },
-    get: jest.fn().mockReturnValue(process.env.API_AUTHORIZATION),
-  } as unknown as Request;
+  }
 
   it('should return 201', async () => {
-    const result = await productController.create(mockRequest, mockRequest.body);
-    expect(result.productId).toEqual(13);
+    const result = await productController.create(mockRequest);
+    expect(result.productId).toEqual(17);
   });
 
   it('should return BadRequestException', async () => {
-    await expect(productController.create(mockRequest, mockRequest.body)).rejects.toThrow(BadRequestException)
+    await expect(productController.create(mockRequest)).rejects.toThrow(BadRequestException)
   })
-
-  it('should return UnauthorizedException', async () => {
-    mockRequest.get = jest.fn().mockReturnValue('')
-    await expect(productController.create(mockRequest, mockRequest.body)).rejects.toThrow(UnauthorizedException)
-  });
 });
 
 describe('Find', () => {
@@ -86,15 +74,7 @@ describe('Find', () => {
     productController = module.get<ProductController>(ProductController);
   });
 
-  const mockRequest = {
-    params: {
-      productId: "11"
-    },
-    headers: {
-      authorization: process.env.API_AUTHORIZATION,
-    },
-    get: jest.fn().mockReturnValue(process.env.API_AUTHORIZATION),
-  } as unknown as Request;
+  let mockRequest = "1"
 
   it('should return 200', async () => {
     const result = await productController.find(mockRequest);
@@ -102,12 +82,7 @@ describe('Find', () => {
   });
 
   it('should return BadRequestException', async () => {
-    mockRequest.params.productId = '20'
+    mockRequest = '30'
     await expect(productController.find(mockRequest)).rejects.toThrow(BadRequestException)
   })
-
-  it('should return UnauthorizedException', async () => {
-    mockRequest.get = jest.fn().mockReturnValue('')
-    await expect(productController.find(mockRequest)).rejects.toThrow(UnauthorizedException)
-  });
 });
