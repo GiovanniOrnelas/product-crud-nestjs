@@ -2,12 +2,11 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductEntity } from '../src/domain/entity/product.entity';
 import { ProductRepository } from '../src/repository/product.repository';
-import * as dotenv from 'dotenv';
-import { BadRequestException } from '@nestjs/common';
 import { ProductValidator } from '../src/validators/product.validator';
+import * as dotenv from 'dotenv';
 dotenv.config();
 
-describe('ProductRepository', () => {
+describe('Repository - Create', () => {
   let repository: ProductRepository;
 
   beforeAll(async () => {
@@ -32,18 +31,19 @@ describe('ProductRepository', () => {
   });
 
   const productDto = {
-    ean: "1",
+    ean: "141253",
     name: "Teste",
     unit: "KG",
     stock: 1
   }
 
-  it('should create a product', async () => {
+  it('should return true', async () => {
     const response = await repository.create(productDto);
-    expect(response).toBe(true);
+    expect(response.success).toBe(true);
   });
 
-  it('should return BadRequestException', async () => {
-    await expect(repository.create(productDto)).rejects.toThrow(BadRequestException);
+  it('should return false', async () => {
+    const response = await repository.create(productDto);
+    expect(response.success).toBe(false);
   });
 });

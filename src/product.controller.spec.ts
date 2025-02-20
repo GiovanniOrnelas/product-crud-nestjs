@@ -7,7 +7,7 @@ import { ProductService } from './services/product.service';
 import { BadRequestException } from '@nestjs/common';
 import { ProductValidator } from './validators/product.validator';
 
-describe('Create', () => {
+describe('Controller - Create', () => {
   let productController: ProductController;
 
   beforeAll(async () => {

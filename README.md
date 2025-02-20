@@ -42,7 +42,7 @@ Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos u
 - Criar um Produto
 
     curl 'http://localhost:3000/product' \
-    -H 'Authorization: Basic bGlua3RvdTpuZXdQYXNzdzByZA==' \
+    -H 'Authorization: Basic {{Token}}' \
     -H 'Content-Type: application/json' \
     -d '{
         "ean": "123",
@@ -57,9 +57,9 @@ Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos u
 
     "scripts": {
         "start": "nest build && node dist/main",
-        "test:controller": "jest src/app.controller.spec.ts",
-        "test:repository": "jest test/repository.spec.ts"
-  }
+        "test:controller": "jest src/product.controller.spec.ts",
+        "test:repository": "jest tests/repository.spec.ts"
+    }
 
 - Para rodar os testes, execute: npm run <script_name>
 
