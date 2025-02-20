@@ -1,3 +1,3 @@
-export class ApiResponse {
-    description?: string;
+export class ApiResponse<T> {
+    data!: T;
 }

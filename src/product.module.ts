@@ -4,6 +4,7 @@ import { ProductController } from './product.controller';
 import { ProductService } from './services/product.service';
 import { ProductEntity } from './domain/entity/product.entity';
 import { ProductRepository } from './repository/product.repository';
+import { ProductValidator } from './validators/product.validator';
 
 @Module({
   imports: [
@@ -20,6 +21,6 @@ import { ProductRepository } from './repository/product.repository';
     TypeOrmModule.forFeature([ProductEntity]),
   ],
   controllers: [ProductController],
-  providers: [ProductService, ProductRepository],
+  providers: [ProductService, ProductRepository, ProductValidator],
 })
 export class ProductModule {}

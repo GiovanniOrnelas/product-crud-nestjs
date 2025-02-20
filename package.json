@@ -1,8 +1,8 @@
 {
   "scripts": {
     "start": "nest build && node dist/main",
-    "test:controller": "jest src/app.controller.spec.ts",
-    "test:repository": "jest test/repository.spec.ts"
+    "test:controller": "jest src/product.controller.spec.ts",
+    "test:repository": "jest tests/repository.spec.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.0",

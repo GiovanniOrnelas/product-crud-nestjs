@@ -4,6 +4,7 @@ import { ProductEntity } from '../src/domain/entity/product.entity';
 import { ProductRepository } from '../src/repository/product.repository';
 import * as dotenv from 'dotenv';
 import { BadRequestException } from '@nestjs/common';
+import { ProductValidator } from '../src/validators/product.validator';
 dotenv.config();
 
 describe('ProductRepository', () => {
@@ -24,7 +25,7 @@ describe('ProductRepository', () => {
         }),
         TypeOrmModule.forFeature([ProductEntity]),
       ],
-      providers: [ProductRepository],
+      providers: [ProductRepository, ProductValidator],
     }).compile();
 
     repository = module.get<ProductRepository>(ProductRepository);
