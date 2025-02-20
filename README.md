@@ -68,16 +68,14 @@ Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos u
 - Aqui estão alguns prints da execução dos testes da API:
 
 1. Criar Produto
-![201 - Create](tests/screenshots/create/201-create.png)
-![400 - Bad Request](tests/screenshots/create/400-bad_request.png)
-![401 - Unauthorized](tests/screenshots/create/401-unauthorized.png)
+   201 - Create ![201 - Create](tests/screenshots/create/201-create.png)
+   400 - Bad Request ![400 - Bad Request](tests/screenshots/create/400-bad_request.png)
+   401 - Unauthorized ![401 - Unauthorized](tests/screenshots/create/401-unauthorized.png)
 
 3. Buscar produto
-![201 - Create](tests/screenshots/find/201-create.png)
-![400 - Bad Request](tests/screenshots/find/400-bad_request.png)
-![401 - Unauthorized](tests/screenshots/find/401-unauthorized.png)
-
-    
+   201 - Create ![201 - Create](tests/screenshots/find/201-create.png)
+   400 - Bad Request ![400 - Bad Request](tests/screenshots/find/400-bad_request.png)
+   401 - Unauthorized ![401 - Unauthorized](tests/screenshots/find/401-unauthorized.png)
 
 ## Diagrama Sequencial do Projeto
 
