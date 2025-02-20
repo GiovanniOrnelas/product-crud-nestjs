@@ -67,15 +67,22 @@ Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos u
 
 - Aqui estão alguns prints da execução dos testes da API:
 
-1. Criar Produto
-   201 - Create ![201 - Create](tests/screenshots/create/201-create.png)
-   400 - Bad Request ![400 - Bad Request](tests/screenshots/create/400-bad_request.png)
-   401 - Unauthorized ![401 - Unauthorized](tests/screenshots/create/401-unauthorized.png)
+## Criar Produto
 
-3. Buscar produto
-   201 - Create ![201 - Create](tests/screenshots/find/200-ok.png)
-   400 - Bad Request ![400 - Bad Request](tests/screenshots/find/400-bad_request.png)
-   401 - Unauthorized ![401 - Unauthorized](tests/screenshots/find/401-unauthorized.png)
+| Status Code        | Descrição                  | Imagem                                                               |
+|--------------------|----------------------------|----------------------------------------------------------------------|
+| 201 Created        | Produto criado com sucesso | ![201 - Create](tests/screenshots/create/201-create.png)             |
+| 400 Bad Request    | Erro na requisição         | ![400 - Bad Request](tests/screenshots/create/400-bad_request.png)   |
+| 401 Unauthorized   | Não autorizado             | ![401 - Unauthorized](tests/screenshots/create/401-unauthorized.png) |
+
+## Buscar Produto
+
+| Status Code        | Descrição                  | Imagem                                                             |
+|--------------------|----------------------------|--------------------------------------------------------------------|
+| 200 OK             | Produto encontrado         | ![200 - OK](tests/screenshots/find/200-ok.png)                     |
+| 400 Bad Request    | Erro na requisição         | ![400 - Bad Request](tests/screenshots/find/400-bad_request.png)   |
+| 401 Unauthorized   | Não autorizado             | ![401 - Unauthorized](tests/screenshots/find/401-unauthorized.png) |
+
 
 ## Diagrama Sequencial do Projeto
 
