@@ -1,6 +1,8 @@
 # Product CRUD API - NestJS
 
-Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos utilizando PostgreSQL e Express (futuramente, irei acrescentar Docker). Para não criarmos muita complexidade, utilizei o TypeORM para realizarmos requisições simples no banco sem precisarmos criar linguagens SQL em nosso código. O objetivo deste proeto é fornecer um exemplo bem estruturado de uma API REST para portfólio e aprendizado.
+Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos utilizando PostgreSQL e Express (futuramente, irei acrescentar Docker). O projeto já utiliza algumas funcionalidades do Nest.js, como o Guards e o Pipes. O Guards é utilizado para validar o token de autorização, garantindo que a requisição tem permissão para acessar o recurso, enquanto o Pipes é responsável por validar e transformar os DTOs (Data Transfer Objects) do código.
+
+Para não criarmos muita complexidade, utilizei o TypeORM para realizarmos requisições simples no banco sem precisarmos criar linguagens SQL em nosso código. O objetivo deste proeto é fornecer um exemplo bem estruturado de uma API REST para portfólio e aprendizado.
 
 ## 🚧 Status
 - Em desenvolvimento
@@ -45,10 +47,10 @@ Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos u
     -H 'Authorization: Basic {{Token}}' \
     -H 'Content-Type: application/json' \
     -d '{
-        "ean": "123",
-        "name": "Mussarela ITALAC",
-        "unit": "KG",
-        "stock": 10
+        "ean": "",
+        "name": "product-name",
+        "unit": "kg || un",
+        "stock": 0
     }'
 
 ## 🧪 Testes Unitários
@@ -62,6 +64,27 @@ Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos u
     }
 
 - Para rodar os testes, execute: npm run <script_name>
+
+## 🖼️ Prints do Projeto
+
+- Aqui estão alguns prints da execução dos testes da API:
+
+## Criar Produto
+
+| Status Code        | Descrição                  | Imagem                                                               |
+|--------------------|----------------------------|----------------------------------------------------------------------|
+| 201 Created        | Produto criado com sucesso | ![201 - Create](tests/screenshots/create/201-create.png)             |
+| 400 Bad Request    | Erro na requisição         | ![400 - Bad Request](tests/screenshots/create/400-bad_request.png)   |
+| 401 Unauthorized   | Não autorizado             | ![401 - Unauthorized](tests/screenshots/create/401-unauthorized.png) |
+
+## Buscar Produto
+
+| Status Code        | Descrição                  | Imagem                                                             |
+|--------------------|----------------------------|--------------------------------------------------------------------|
+| 200 OK             | Produto encontrado         | ![200 - OK](tests/screenshots/find/200-ok.png)                     |
+| 400 Bad Request    | Erro na requisição         | ![400 - Bad Request](tests/screenshots/find/400-bad_request.png)   |
+| 401 Unauthorized   | Não autorizado             | ![401 - Unauthorized](tests/screenshots/find/401-unauthorized.png) |
+
 
 ## Diagrama Sequencial do Projeto
 
