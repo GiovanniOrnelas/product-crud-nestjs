@@ -73,7 +73,7 @@ Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos u
    401 - Unauthorized ![401 - Unauthorized](tests/screenshots/create/401-unauthorized.png)
 
 3. Buscar produto
-   201 - Create ![201 - Create](tests/screenshots/find/201-create.png)
+   201 - Create ![201 - Create](tests/screenshots/find/200-ok.png)
    400 - Bad Request ![400 - Bad Request](tests/screenshots/find/400-bad_request.png)
    401 - Unauthorized ![401 - Unauthorized](tests/screenshots/find/401-unauthorized.png)
 
