@@ -16,7 +16,7 @@ Este é um projeto desenvolvido com NestJS para demonstrar um CRUD de produtos u
 ## 📌 Funcionalidades
 
 - Criar um produto
-- Listar todos os produtos com paginação
+- Listar todos os produtos por paginação
 - Buscar um produto por ID
 - Atualizar um produto
 - Deletar um produto
