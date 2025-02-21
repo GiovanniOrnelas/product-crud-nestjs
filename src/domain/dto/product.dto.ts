@@ -17,3 +17,17 @@ export class ProductDto {
     @IsInt()
     stock!: number;
 }
+
+export class UpdateProductDto {
+    @IsNotEmpty()
+    @IsString()
+    name!: string;
+
+    @IsNotEmpty()
+    @IsString()
+    unit!: string;
+
+    @IsNotEmpty()
+    @IsInt()
+    stock!: number;
+}

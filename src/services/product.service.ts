@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable } from "@nestjs/common";
-import { ProductDto } from "../domain/dto/product.dto";
+import { ProductDto, UpdateProductDto } from "../domain/dto/product.dto";
 import { ProductServiceInterface } from "./product.service.interface";
 import { ProductRepository } from "../repository/product.repository";
 
@@ -23,6 +23,17 @@ export class ProductService implements ProductServiceInterface {
             const response = await this.productRepository.find(productId);
 
             if (response.success) return response.return as ProductDto
+            else throw new BadRequestException({ errorMessage: response.return })
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async updateAsync(productId: number, productDto: UpdateProductDto): Promise<string> {
+        try {
+            const response = await this.productRepository.update(productId, productDto);
+
+            if (response.success) return response.return
             else throw new BadRequestException({ errorMessage: response.return })
         } catch (error) {
             throw error;

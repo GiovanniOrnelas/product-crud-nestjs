@@ -74,16 +74,26 @@ Para não criarmos muita complexidade, utilizei o TypeORM para realizarmos requi
 | Status Code        | Descrição                  | Imagem                                                               |
 |--------------------|----------------------------|----------------------------------------------------------------------|
 | 201 Created        | Produto criado com sucesso | ![201 - Create](tests/screenshots/create/201-create.png)             |
-| 400 Bad Request    | Erro na requisição         | ![400 - Bad Request](tests/screenshots/create/400-bad_request.png)   |
-| 401 Unauthorized   | Não autorizado             | ![401 - Unauthorized](tests/screenshots/create/401-unauthorized.png) |
+| 400 Bad Request    | Produto já existente         | ![400 - Bad Request](tests/screenshots/create/400-bad_request_1.png)   |
+| 400 Bad Request    | Campos obrigatórios faltando (ValidationPipe)         | ![400 - Bad Request](tests/screenshots/create/400-bad_request_2.png)   |
+| 401 Unauthorized   | Não autorizado. Token inválido!             | ![401 - Unauthorized](tests/screenshots/create/401-unauthorized.png) |
 
 ## Buscar Produto
 
 | Status Code        | Descrição                  | Imagem                                                             |
 |--------------------|----------------------------|--------------------------------------------------------------------|
 | 200 OK             | Produto encontrado         | ![200 - OK](tests/screenshots/find/200-ok.png)                     |
-| 400 Bad Request    | Erro na requisição         | ![400 - Bad Request](tests/screenshots/find/400-bad_request.png)   |
-| 401 Unauthorized   | Não autorizado             | ![401 - Unauthorized](tests/screenshots/find/401-unauthorized.png) |
+| 400 Bad Request    | Produto não existe        | ![400 - Bad Request](tests/screenshots/find/400-bad_request.png)   |
+| 401 Unauthorized   | Não autorizado. Token inválido!             | ![401 - Unauthorized](tests/screenshots/find/401-unauthorized.png) |
+
+## Atualizar Produto
+
+| Status Code        | Descrição                  | Imagem                                                             |
+|--------------------|----------------------------|--------------------------------------------------------------------|
+| 200 OK             | Produto atualizado com sucesso         | ![200 - OK](tests/screenshots/update/200-ok.png)       |
+| 400 Bad Request    | Produto não existe ou o EAN já está atrelado a um outro produto        | ![400 - Bad Request](tests/screenshots/update/400-bad_request_1.png)   |
+| 400 Bad Request    | Campos obrigatórios faltando (ValidationPipe)         | ![400 - Bad Request](tests/screenshots/update/400-bad_request_2.png)   |
+| 401 Unauthorized   | Não autorizado. Token inválido!        | ![401 - Unauthorized](tests/screenshots/update/401-unauthorized.png) |
 
 
 ## Diagrama Sequencial do Projeto
