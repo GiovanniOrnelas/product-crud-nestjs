@@ -91,7 +91,7 @@ Para não criarmos muita complexidade, utilizei o TypeORM para realizarmos requi
 | Status Code        | Descrição                  | Imagem                                                             |
 |--------------------|----------------------------|--------------------------------------------------------------------|
 | 200 OK             | Produto atualizado com sucesso         | ![200 - OK](tests/screenshots/update/200-ok.png)       |
-| 400 Bad Request    | Produto não existe ou o EAN já está atrelado a um outro produto        | ![400 - Bad Request](tests/screenshots/update/400-bad_request_1.png)   |
+| 400 Bad Request    | Produto não existe        | ![400 - Bad Request](tests/screenshots/update/400-bad_request_1.png)   |
 | 400 Bad Request    | Campos obrigatórios faltando (ValidationPipe)         | ![400 - Bad Request](tests/screenshots/update/400-bad_request_2.png)   |
 | 401 Unauthorized   | Não autorizado. Token inválido!        | ![401 - Unauthorized](tests/screenshots/update/401-unauthorized.png) |
 
