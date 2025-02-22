@@ -87,7 +87,7 @@ describe('Find', () => {
   })
 });
 
-describe.only('Update', () => {
+describe('Update', () => {
   let productController: ProductController;
 
   beforeAll(async () => {
@@ -127,5 +127,41 @@ describe.only('Update', () => {
   it('should return BadRequestException, because already exist this ean in another product', async () => {
     const productId = '100';
     await expect(productController.update(productId, productDto)).rejects.toThrow(BadRequestException)
+  })
+});
+
+describe.only('Delete', () => {
+  let productController: ProductController;
+
+  beforeAll(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      imports: [
+        TypeOrmModule.forRoot({
+          type: 'postgres',
+          host: 'localhost',
+          port: parseInt(process.env.BD_PORT as string),
+          username: process.env.BD_USER,
+          password: process.env.BD_PASSWORD,
+          database: process.env.BD_NAME,
+          entities: [ProductEntity],
+          synchronize: true,
+        }),
+        TypeOrmModule.forFeature([ProductEntity]),
+      ],
+      controllers: [ProductController],
+      providers: [ProductService, ProductRepository, ProductValidator],
+    }).compile();
+
+    productController = module.get<ProductController>(ProductController);
+  });
+
+  const productId = '30'
+
+  it('should return 204, because this product has been deleted', async () => {
+    await expect(productController.delete(productId)).resolves.toBeUndefined();
+  });
+
+  it('should return BadRequestException, because this product don"t exist', async () => {
+    await expect(productController.delete(productId)).rejects.toThrow(BadRequestException)
   })
 });

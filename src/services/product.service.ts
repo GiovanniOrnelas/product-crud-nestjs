@@ -39,4 +39,15 @@ export class ProductService implements ProductServiceInterface {
             throw error;
         }
     }
+
+    async deleteAsync(productId: number): Promise<void> {
+        try {
+            const response = await this.productRepository.delete(productId);
+
+            if (!response.success)
+                throw new BadRequestException({ errorMessage: response.return })
+        } catch (error) {
+            throw error;
+        }
+    }
 }

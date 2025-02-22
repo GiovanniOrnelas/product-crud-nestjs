@@ -85,7 +85,7 @@ describe('Repository - Find', () => {
   });
 });
 
-describe.only('Repository - Update', () => {
+describe('Repository - Update', () => {
   let repository: ProductRepository;
 
   beforeAll(async () => {
@@ -124,6 +124,43 @@ describe.only('Repository - Update', () => {
   it('should return false, because already exist this ean in another product', async () => {
     const productId = 100;
     const response = await repository.update(productId, productDto);
+    expect(response.success).toBe(false);
+  });
+});
+
+describe.only('Repository - Delete', () => {
+  let repository: ProductRepository;
+
+  beforeAll(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      imports: [
+        TypeOrmModule.forRoot({
+          type: 'postgres',
+          host: 'localhost',
+          port: parseInt(process.env.BD_PORT as string),
+          username: process.env.BD_USER,
+          password: process.env.BD_PASSWORD,
+          database: process.env.BD_NAME,
+          entities: [ProductEntity],
+          synchronize: true,
+        }),
+        TypeOrmModule.forFeature([ProductEntity]),
+      ],
+      providers: [ProductRepository, ProductValidator],
+    }).compile();
+
+    repository = module.get<ProductRepository>(ProductRepository);
+  });
+
+  const productId = 26
+
+  it('should return true, because this product exist', async () => {
+    const response = await repository.delete(productId);
+    expect(response.success).toBe(true);
+  });
+
+  it('should return false, because this product don"t exist', async () => {
+    const response = await repository.delete(productId);
     expect(response.success).toBe(false);
   });
 });

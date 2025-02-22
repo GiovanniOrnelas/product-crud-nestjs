@@ -4,4 +4,5 @@ export interface ProductServiceInterface {
     createAsync(productDto: ProductDto): Promise<string | number>
     findAsync(productId: number): Promise<ProductDto>
     updateAsync(productId: number, productDto: UpdateProductDto): Promise<string>
+    deleteAsync(productId: number): Promise<void>
 }

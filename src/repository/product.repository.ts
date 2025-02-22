@@ -51,8 +51,20 @@ export class ProductRepository implements ProductRepositoryInterface {
                 ...productDto
             });
 
-            console.log(product)
             return { success: true, return: `product has been updated` };;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async delete(productId: number): Promise<RepositoryResponse<string>> {
+        try {
+            const product = await this.productValidator.validator(productId);
+            if (!product) return { return: `id ${productId} doesn't exist!`, success: false };
+
+            await this.productRepository.delete(productId)
+            
+            return { success: true, return: `product has been deleted` };;
         } catch (error) {
             throw error;
         }

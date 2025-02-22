@@ -65,6 +65,13 @@ Para não criarmos muita complexidade, utilizei o TypeORM para realizarmos requi
 
 - Para rodar os testes, execute: npm run <script_name>
 
+## 📖 Documentação com Swagger
+
+- O projeto utiliza Swagger para fornecer uma interface interativa da API. Para acessar a documentação:
+
+    1. Inicie o servidor: npm run start
+    2. Acesse http://localhost:3000/api no navegador.
+
 ## 🖼️ Prints do Projeto
 
 - Aqui estão alguns prints da execução dos testes da API:
@@ -90,10 +97,18 @@ Para não criarmos muita complexidade, utilizei o TypeORM para realizarmos requi
 
 | Status Code        | Descrição                  | Imagem                                                             |
 |--------------------|----------------------------|--------------------------------------------------------------------|
-| 200 OK             | Produto atualizado com sucesso         | ![200 - OK](tests/screenshots/update/200-ok.png)       |
+| 200 OK             | Produto atualizado         | ![200 - OK](tests/screenshots/update/200-ok.png)       |
 | 400 Bad Request    | Produto não existe        | ![400 - Bad Request](tests/screenshots/update/400-bad_request_1.png)   |
 | 400 Bad Request    | Campos obrigatórios faltando (ValidationPipe)         | ![400 - Bad Request](tests/screenshots/update/400-bad_request_2.png)   |
 | 401 Unauthorized   | Não autorizado. Token inválido!        | ![401 - Unauthorized](tests/screenshots/update/401-unauthorized.png) |
+
+## Deletar Produto
+
+| Status Code        | Descrição                  | Imagem                                                            |
+|--------------------|-------------------------|----------------------------------------------------------------------|
+| 204 No Content     | Produto deletado        | ![204 No Content ](tests/screenshots/delete/204-no_content.png)                     |
+| 400 Bad Request    | Produto não existe      | ![400 - Bad Request](tests/screenshots/delete/400-bad_request.png) | |
+| 401 Unauthorized   | Não autorizado. Token inválido!        | ![401 - Unauthorized](tests/screenshots/delete/401-unauthorized.png) |
 
 
 ## Diagrama Sequencial do Projeto

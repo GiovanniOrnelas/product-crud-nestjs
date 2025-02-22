@@ -1,33 +1,41 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { IsInt, IsNotEmpty, IsString } from 'class-validator';
 
 export class ProductDto {
-    @IsNotEmpty()
-    @IsString()
-    ean!: string;
+  @ApiProperty({ description: 'Código de barras do produto (EAN)', example: '7891234567890' })
+  @IsNotEmpty()
+  @IsString()
+  ean!: string;
 
-    @IsNotEmpty()
-    @IsString()
-    name!: string;
+  @ApiProperty({ description: 'Nome do produto', example: 'Coca-Cola 2L' })
+  @IsNotEmpty()
+  @IsString()
+  name!: string;
 
-    @IsNotEmpty()
-    @IsString()
-    unit!: string;
+  @ApiProperty({ description: 'Unidade de medida do produto', example: 'Litro' })
+  @IsNotEmpty()
+  @IsString()
+  unit!: string;
 
-    @IsNotEmpty()
-    @IsInt()
-    stock!: number;
+  @ApiProperty({ description: 'Quantidade em estoque', example: 100 })
+  @IsNotEmpty()
+  @IsInt()
+  stock!: number;
 }
 
 export class UpdateProductDto {
-    @IsNotEmpty()
-    @IsString()
-    name!: string;
+  @ApiProperty({ description: 'Nome atualizado do produto', example: 'Pepsi 2L' })
+  @IsNotEmpty()
+  @IsString()
+  name!: string;
 
-    @IsNotEmpty()
-    @IsString()
-    unit!: string;
+  @ApiProperty({ description: 'Unidade de medida do produto', example: 'Litro' })
+  @IsNotEmpty()
+  @IsString()
+  unit!: string;
 
-    @IsNotEmpty()
-    @IsInt()
-    stock!: number;
+  @ApiProperty({ description: 'Quantidade em estoque', example: 150 })
+  @IsNotEmpty()
+  @IsInt()
+  stock!: number;
 }

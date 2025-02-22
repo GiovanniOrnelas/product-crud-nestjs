@@ -5,4 +5,5 @@ export interface ProductRepositoryInterface {
     create(productDto: ProductDto): Promise<RepositoryResponse<string | number>>
     find(productId: number): Promise<RepositoryResponse<ProductDto | string>>
     update(productId: number, productDto: UpdateProductDto): Promise<RepositoryResponse<string>>
+    delete(productId: number): Promise<RepositoryResponse<string>>
 }
