@@ -1,4 +1,4 @@
 export class RepositoryResponse<T> {
-    return!: T;
+    return?: T;
     success!: boolean;
 }

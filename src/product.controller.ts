@@ -1,15 +1,15 @@
-import { Controller, Post, Body, Get, UseGuards, InternalServerErrorException, Param, Put, Delete, HttpCode } from '@nestjs/common';
-import { ProductService } from './services/product.service';
+import { Controller, Post, Body, Get, UseGuards, InternalServerErrorException, Param, Put, Delete, HttpCode, Inject } from '@nestjs/common';
 import { ProductDto, UpdateProductDto } from './domain/dto/product.dto';
 import { ApiResponse } from './domain/dto/api-response.dto';
 import { AuthGuard } from './guards/auth.guard';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { IProductService } from './services/product.service.interface';
 
 @ApiTags('product')
 @Controller('api/product')
 @UseGuards(AuthGuard)
 export class ProductController {
-  constructor(private readonly productService: ProductService) {}
+  constructor(@Inject('IProductService') private readonly productService: IProductService) {}
 
   @Post()
   @ApiOperation({ summary: 'Cria um produto' })

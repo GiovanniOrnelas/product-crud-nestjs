@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { ProductDto, UpdateProductDto } from "../domain/dto/product.dto";
-import { ProductRepositoryInterface } from "./product.repository.interface";
+import { IProductRepository } from "./product.repository.interface";
 import { InjectRepository } from "@nestjs/typeorm";
 import { ProductEntity } from "../domain/entity/product.entity";
 import { Repository } from "typeorm";
@@ -8,13 +8,14 @@ import { RepositoryResponse } from "../domain/dto/repository.dto";
 import { ProductValidator } from "../validators/product.validator";
 
 @Injectable()
-export class ProductRepository implements ProductRepositoryInterface {
+export class ProductRepository implements IProductRepository {
     constructor(
         @InjectRepository(ProductEntity) private productRepository: Repository<ProductEntity>,
+
         @Inject(ProductValidator) private productValidator: ProductValidator
     ){}
     
-    async create(productDto: ProductDto): Promise<RepositoryResponse<string | number>> {
+    async create(productDto: ProductDto): Promise<RepositoryResponse<number>> {
         try {
             const existingProduct = await this.productValidator.validator(productDto.ean);
 
@@ -23,7 +24,7 @@ export class ProductRepository implements ProductRepositoryInterface {
                 return { return: product.id, success: true}
             }
 
-            return { return: `ean ${productDto.ean} already exist!`, success: false};
+            return { success: false };
         } catch (error) {
             throw error
         }

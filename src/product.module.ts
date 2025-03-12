@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductController } from './product.controller';
-import { ProductService } from './services/product.service';
 import { ProductEntity } from './domain/entity/product.entity';
-import { ProductRepository } from './repository/product.repository';
+import { ProductService } from "./services/product.service";
 import { ProductValidator } from './validators/product.validator';
+import { ProductRepository } from './repository/product.repository';
 
 @Module({
   imports: [
@@ -21,6 +21,9 @@ import { ProductValidator } from './validators/product.validator';
     TypeOrmModule.forFeature([ProductEntity]),
   ],
   controllers: [ProductController],
-  providers: [ProductService, ProductRepository, ProductValidator],
+  providers: [
+    { provide: 'IProductService', useClass: ProductService }, { provide: 'IProductRepository', useClass: ProductRepository }, ProductValidator
+  ],
+  exports: ['IProductService', 'IProductRepository']
 })
 export class ProductModule {}
