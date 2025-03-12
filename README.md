@@ -43,7 +43,7 @@ Para não criarmos muita complexidade, utilizei o TypeORM para realizarmos requi
 
 - Criar um Produto
 
-    curl 'http://localhost:3000/product' \
+    curl 'http://localhost:3000/api/product' \
     -H 'Authorization: Basic {{Token}}' \
     -H 'Content-Type: application/json' \
     -d '{
